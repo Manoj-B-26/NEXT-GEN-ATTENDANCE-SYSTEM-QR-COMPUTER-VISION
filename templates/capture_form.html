@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Register New User</h4>
+            </div>
+            <div class="card-body">
+                <form action="/capture_faces" method="post">
+                    <div class="mb-3">
+                        <label for="person_id" class="form-label">Person ID (Number)</label>
+                        <input type="text" class="form-control" id="person_id" name="person_id" placeholder="Enter a numeric ID" required pattern="[0-9]+">
+                        <div class="form-text">This ID will be used to identify the person in the system. Use numeric values only.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Start Capture</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

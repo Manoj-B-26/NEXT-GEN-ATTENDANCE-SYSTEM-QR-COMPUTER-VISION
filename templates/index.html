@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">NEXT-GEN ATTENDANCE SYSTEM</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+            A modern attendance system that combines QR code scanning and facial recognition
+            for secure and efficient attendance tracking.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Register Users</h5>
+                <p class="card-text">Register new users by capturing their face images for the recognition system.</p>
+                <a href="/capture_faces" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Generate QR Codes</h5>
+                <p class="card-text">Create QR codes for different rooms and periods for attendance marking.</p>
+                <a href="/generate_qr" class="btn btn-primary">Generate</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Mark Attendance</h5>
+                <p class="card-text">Scan QR code and verify identity through facial recognition.</p>
+                <a href="/scan_qr" class="btn btn-primary">Mark</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card feature-card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">View Attendance</h5>
+                <p class="card-text">View and analyze attendance records collected through the system.</p>
+                <a href="/view_attendance" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card feature-card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Train Recognition Model</h5>
+                <p class="card-text">Train the facial recognition model with the latest dataset.</p>
+                <a href="/train_model" class="btn btn-primary">Train</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Generate QR Code</h4>
+            </div>
+            <div class="card-body">
+                <form action="/generate_qr" method="post">
+                    <div class="mb-3">
+                        <label for="room_no" class="form-label">Room Number</label>
+                        <input type="text" class="form-control" id="room_no" name="room_no" placeholder="Enter room number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="period_no" class="form-label">Period Number</label>
+                        <input type="text" class="form-control" id="period_no" name="period_no" placeholder="Enter period number" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate QR Code</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

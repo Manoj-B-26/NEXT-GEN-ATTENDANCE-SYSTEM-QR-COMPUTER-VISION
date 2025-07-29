@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Scan QR Code</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <p>Please scan the QR code to begin the attendance process.</p>
+                </div>
+                <div class="video-container">
+                    <img src="{{ url_for('video_feed_mode', mode='scan_qr') }}" class="video-feed" alt="QR Scanner">
+                </div>
+                <div class="mt-3 d-flex justify-content-between">
+                    <a href="/" class="btn btn-secondary">Cancel</a>
+                    <a href="#" class="btn btn-primary" id="proceed_button" style="display: none;">Proceed to Face Recognition</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Poll for QR code data every second
+    let checkQRInterval = setInterval(function() {
+        fetch('/get_qr_data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.qr_data) {
+                    document.getElementById('proceed_button').style.display = 'block';
+                    document.getElementById('proceed_button').href = '/face_recognition';
+                    clearInterval(checkQRInterval);
+                }
+            });
+    }, 1000);
+</script>
+{% endblock %}
